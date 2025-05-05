@@ -8,7 +8,7 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Copy package files and install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm install -g npm@11.3.0
 
 # Copy the rest of the app and build it
 COPY . .
