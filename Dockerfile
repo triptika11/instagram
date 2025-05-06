@@ -1,5 +1,6 @@
 # Stage 1: Build React 
-FROM node:18-alpine as build
+FROM node:20.17.0-alpine as build
+
 
 WORKDIR /app
 
@@ -7,8 +8,10 @@ WORKDIR /app
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Copy package files and install dependencies
-COPY package*.json ./
-RUN npm install -g npm@11.3.0
+COPY package.json package-lock.json ./
+
+RUN npm install -g npm@10.8.2
+
 
 # Copy the rest of the app and build it
 COPY . .
