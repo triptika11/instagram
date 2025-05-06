@@ -8,9 +8,9 @@ WORKDIR /app
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Copy package files and install dependencies
-COPY package.json package-lock.json ./
+COPY package.json ./
 
-RUN npm install -g npm@10.8.2
+RUN npm install -g npm@10.8.2 && npm install
 
 
 # Copy the rest of the app and build it
